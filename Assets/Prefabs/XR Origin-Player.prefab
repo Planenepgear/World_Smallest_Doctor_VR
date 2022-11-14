@@ -2766,13 +2766,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flyCamera: {fileID: 7480824473233933262}
   playerCamera: {fileID: 7644332755939777088}
-  chapterCamera: {fileID: 0}
+  characterCamera: {fileID: 0}
   locator: {fileID: 7644332754649197071}
-  chapterModle: {fileID: 0}
+  characterModle: {fileID: 0}
   chapterLeftHand: {fileID: 0}
   chapterRightHand: {fileID: 0}
+  globalVolume: {fileID: 0}
+  weightChangeSpeed: 0.25
   minDistance: 0.3
-  flySpeed: 10
+  flySmoothTime: 2.5
   Yoffect: 0
   LExchange:
     m_UseReference: 1

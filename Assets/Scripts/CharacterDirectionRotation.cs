@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class CharacterDirectionRotation : MonoBehaviour
 {
     public Transform towards;
-    public Transform chapterModle;
+    public Transform characterModle;
 
     private Vector3 tempTowards;
 
@@ -33,6 +33,6 @@ public class CharacterDirectionRotation : MonoBehaviour
 
         Quaternion q = Quaternion.LookRotation(tempTowards);
         //Quaternion q = Quaternion.LookRotation(transform.parent.GetComponent<CharacterController>().velocity);
-        chapterModle.rotation = Quaternion.Slerp(chapterModle.rotation, q, turnSpeed * Time.deltaTime);
+        characterModle.rotation = Quaternion.Slerp(characterModle.rotation, q, turnSpeed * Time.deltaTime);
     }
 }

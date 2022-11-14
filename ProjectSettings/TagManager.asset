@@ -7,6 +7,8 @@ TagManager:
   - Switch
   - Trap1
   - Door1
+  - Character
+  - Elevator
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - Chapter
+  - Character
   - Interactable P
   - Interactable C
   - 
