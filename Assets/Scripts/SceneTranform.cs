@@ -49,7 +49,7 @@ public class SceneTranform : MonoBehaviour
                 {
                     //if(this.transform.position.y - playerCamera.position.y > 0 && this.transform.position.y - playerCamera.position.y < maxDistanceVertical)
                     //if(this.transform.position.y - playerCamera.position.y < maxDistanceVertical)
-                    if(characterModle.position.y - playerCamera.position.y < maxDistanceVertical)
+                    if (characterModle.position.y - playerCamera.position.y < maxDistanceVertical)
                     {
                         this.transform.Translate(moveSpeed * Time.deltaTime * Vector3.up, Space.World);
                     }
@@ -58,7 +58,7 @@ public class SceneTranform : MonoBehaviour
                 {
                     //if(this.transform.position.y - playerCamera.position.y <= 0 && this.transform.position.y - playerCamera.position.y > minDistanceVertical)
                     //if(this.transform.position.y - playerCamera.position.y > minDistanceVertical)
-                    if(characterModle.position.y - playerCamera.position.y > minDistanceVertical)
+                    if (characterModle.position.y - playerCamera.position.y > minDistanceVertical)
                     {
                         this.transform.Translate(moveSpeed * Time.deltaTime * Vector3.down, Space.World);
                     }
