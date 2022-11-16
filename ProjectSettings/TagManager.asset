@@ -9,6 +9,7 @@ TagManager:
   - Door1
   - Character
   - Elevator
+  - Seesaw
   layers:
   - Default
   - TransparentFX
