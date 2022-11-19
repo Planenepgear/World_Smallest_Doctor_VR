@@ -1,0 +1,228 @@
+fileFormatVersion: 2
+guid: 5e61eab27b4167642820f2afa678548e
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Arm_Cat
+    100002: Base
+    100004: Cat_Abyss
+    100006: Cat_black
+    100008: Cat_Black_White
+    100010: Cat_Blue
+    100012: Cat_Bobtail
+    100014: Cat_Brit
+    100016: Cat_brown
+    100018: Cat_crem
+    100020: Cat_maine
+    100022: Cat_Pers
+    100024: Cat_Red
+    100026: Cat_Red_White
+    100028: Cat_Siamese
+    100030: Cat_Sphynx
+    100032: Cat_white
+    100034: claw_b.L
+    100036: claw_b.R
+    100038: claw_f.L
+    100040: claw_f.R
+    100042: foot_b.L
+    100044: foot_b.R
+    100046: foot_f.L
+    100048: foot_f.R
+    100050: head
+    100052: Helper_claw_b.L
+    100054: Helper_claw_b.R
+    100056: Helper_foot_f.L
+    100058: Helper_foot_f.R
+    100060: hip_b.L
+    100062: hip_b.R
+    100064: hip_f.L
+    100066: hip_f.R
+    100068: leg_b.L
+    100070: leg_b.R
+    100072: leg_f.L
+    100074: leg_f.R
+    100076: //RootNode
+    100078: mouth
+    100080: neck
+    100082: root_bone
+    100084: shoulder_blade.L
+    100086: shoulder_blade.R
+    100088: spine_02
+    100090: spine_03
+    100092: spine_04
+    100094: spine_05
+    100096: Spine_base
+    100098: tail_01
+    100100: tail_03
+    100102: tail_04
+    100104: tail_06
+    400000: Arm_Cat
+    400002: Base
+    400004: Cat_Abyss
+    400006: Cat_black
+    400008: Cat_Black_White
+    400010: Cat_Blue
+    400012: Cat_Bobtail
+    400014: Cat_Brit
+    400016: Cat_brown
+    400018: Cat_crem
+    400020: Cat_maine
+    400022: Cat_Pers
+    400024: Cat_Red
+    400026: Cat_Red_White
+    400028: Cat_Siamese
+    400030: Cat_Sphynx
+    400032: Cat_white
+    400034: claw_b.L
+    400036: claw_b.R
+    400038: claw_f.L
+    400040: claw_f.R
+    400042: foot_b.L
+    400044: foot_b.R
+    400046: foot_f.L
+    400048: foot_f.R
+    400050: head
+    400052: Helper_claw_b.L
+    400054: Helper_claw_b.R
+    400056: Helper_foot_f.L
+    400058: Helper_foot_f.R
+    400060: hip_b.L
+    400062: hip_b.R
+    400064: hip_f.L
+    400066: hip_f.R
+    400068: leg_b.L
+    400070: leg_b.R
+    400072: leg_f.L
+    400074: leg_f.R
+    400076: //RootNode
+    400078: mouth
+    400080: neck
+    400082: root_bone
+    400084: shoulder_blade.L
+    400086: shoulder_blade.R
+    400088: spine_02
+    400090: spine_03
+    400092: spine_04
+    400094: spine_05
+    400096: Spine_base
+    400098: tail_01
+    400100: tail_03
+    400102: tail_04
+    400104: tail_06
+    2100000: Lowpoly_Cat
+    4300000: Cat_Abyss
+    4300002: Cat_black
+    4300004: Cat_Black_White
+    4300006: Cat_Blue
+    4300008: Cat_Bobtail
+    4300010: Cat_Brit
+    4300012: Cat_brown
+    4300014: Cat_crem
+    4300016: Cat_maine
+    4300018: Cat_Pers
+    4300020: Cat_Red
+    4300022: Cat_Red_White
+    4300024: Cat_Siamese
+    4300026: Cat_Sphynx
+    4300028: Cat_white
+    9500000: //RootNode
+    13700000: Cat_Abyss
+    13700002: Cat_black
+    13700004: Cat_Black_White
+    13700006: Cat_Blue
+    13700008: Cat_Bobtail
+    13700010: Cat_Brit
+    13700012: Cat_brown
+    13700014: Cat_crem
+    13700016: Cat_maine
+    13700018: Cat_Pers
+    13700020: Cat_Red
+    13700022: Cat_Red_White
+    13700024: Cat_Siamese
+    13700026: Cat_Sphynx
+    13700028: Cat_white
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lowpoly_Cat
+    second: {fileID: 2100000, guid: b4dbb4d9fc4e42c4c97612185b8ecefd, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    keepQuads: 0
+    weldVertices: 0
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
