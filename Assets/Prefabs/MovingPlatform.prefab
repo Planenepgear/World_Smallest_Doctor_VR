@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 503019611341717019}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5114051889039152288}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject (1)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3442217017944853666}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2548761637986184685}
   - component: {fileID: 1302139628278335138}
   - component: {fileID: 3125361515180033179}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2346383692461324063}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject (2)
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3264096767141555849}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WayPoints
   m_TagString: Platform
   m_Icon: {fileID: 0}

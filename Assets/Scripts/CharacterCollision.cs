@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class CharacterCollision : MonoBehaviour
 {
@@ -18,17 +19,6 @@ public class CharacterCollision : MonoBehaviour
             hit.transform.SendMessage("CharacterLocker", this.gameObject);
         }
 
-        if (hit.gameObject.CompareTag("Platform")&& !platformFrameCheck)
-        {
-            if (hit.transform != transform.parent)
-            {
-                platformOriginParent = transform.parent;
-                transform.SetParent(hit.transform);
-             }
-            platformFrameCheck = true;
-        }
-
-        
       
         if (hit.gameObject.CompareTag("Seesaw"))
         {
@@ -47,19 +37,24 @@ public class CharacterCollision : MonoBehaviour
             rb.AddForceAtPosition(Vector3.down * forceMagnitude, transform.position, ForceMode.Impulse);
         }
     }
-    float timer = 0;
-    float checkTime = 0.2f;
+
+    private Transform originParent;
     private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer <= checkTime)
-            return;
-        timer = 0f;
-        if (!platformFrameCheck && platformOriginParent != null) {
-            transform.SetParent(platformOriginParent);
-            platformOriginParent = null;
+        RaycastHit hit;
+        Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, 3f, LayerMask.GetMask("Platform"));
+        if(hit.collider)
+            print(hit.collider);
+        if (hit.collider && !originParent)
+        {
+            originParent = transform.parent;
+            transform.SetParent(hit.collider.transform);
         }
-        platformFrameCheck = false;
+        if (!hit.collider && originParent)
+        {
+            transform.SetParent(originParent);
+            originParent = null;
+        }
+        
     }
-
 }

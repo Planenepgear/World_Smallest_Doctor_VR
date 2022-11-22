@@ -18,6 +18,7 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (isEnabled)
         {
             Vector3 dest = wayPoints[idx].localPosition;
@@ -35,8 +36,6 @@ public class MovingPlatform : MonoBehaviour
     {
         isEnabled = sw;
     }
-
-    private Transform originParent;
 
 
 }
