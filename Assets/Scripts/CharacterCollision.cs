@@ -9,18 +9,27 @@ public class CharacterCollision : MonoBehaviour
     //public float pushPower = 1.0f;
     public float forceMagnitude = 1.0f;
 
+    private Transform platformOriginParent;
+    private bool platformFrameCheck = false;
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.gameObject.CompareTag("Elevator"))
         {
-            //Debug.Log("Elevator Start");
             hit.transform.SendMessage("CharacterLocker", this.gameObject);
         }
-        //else
-        //{
-        //    transform.SetParent(scene);
-        //}
 
+        if (hit.gameObject.CompareTag("Platform")&& !platformFrameCheck)
+        {
+            if (hit.transform != transform.parent)
+            {
+                platformOriginParent = transform.parent;
+                transform.SetParent(hit.transform);
+             }
+            platformFrameCheck = true;
+        }
+
+        
+      
         if (hit.gameObject.CompareTag("Seesaw"))
         {
             Rigidbody rb = hit.collider.attachedRigidbody;
@@ -38,4 +47,19 @@ public class CharacterCollision : MonoBehaviour
             rb.AddForceAtPosition(Vector3.down * forceMagnitude, transform.position, ForceMode.Impulse);
         }
     }
+    float timer = 0;
+    float checkTime = 0.2f;
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer <= checkTime)
+            return;
+        timer = 0f;
+        if (!platformFrameCheck && platformOriginParent != null) {
+            transform.SetParent(platformOriginParent);
+            platformOriginParent = null;
+        }
+        platformFrameCheck = false;
+    }
+
 }

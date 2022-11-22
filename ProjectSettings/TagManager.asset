@@ -10,7 +10,7 @@ TagManager:
   - Character
   - Elevator
   - Seesaw
-  - Prop
+  - Platform
   layers:
   - Default
   - TransparentFX

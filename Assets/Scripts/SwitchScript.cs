@@ -32,6 +32,10 @@ public class SwitchScript : MonoBehaviour
                 {
                     item.SendMessage("StopTrap", true);
                 }
+                else if (item.CompareTag("Platform"))
+                {
+                    item.SendMessage("StopTrap", true);
+                }
             }
         }
         else
@@ -43,6 +47,10 @@ public class SwitchScript : MonoBehaviour
                     item.SetActive(true);
                 }
                 else if (item.CompareTag("Trap1"))
+                {
+                    item.SendMessage("StopTrap", false);
+                }
+                else if (item.CompareTag("Platform"))
                 {
                     item.SendMessage("StopTrap", false);
                 }
