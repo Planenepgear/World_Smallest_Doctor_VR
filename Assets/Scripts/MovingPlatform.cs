@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class MovingPlatform : MonoBehaviour, IItem
 {
     [SerializeField] private float moveSpeed;
     private bool isEnabled = false;
@@ -32,10 +32,9 @@ public class MovingPlatform : MonoBehaviour
             transform.Translate(moveVec);
         }
     }
-    public void StopTrap(bool sw)
+
+    public void Input(bool value)
     {
-        isEnabled = sw;
+        isEnabled = !value;
     }
-
-
 }

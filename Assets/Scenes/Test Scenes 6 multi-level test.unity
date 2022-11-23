@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18054643, g: 0.22602841, b: 0.30706868, a: 1}
+  m_IndirectSpecularColor: {r: 0.18054566, g: 0.22602737, b: 0.30706728, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -65092,6 +65092,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1278414127}
+  - component: {fileID: 1278414128}
   m_Layer: 0
   m_Name: Door1
   m_TagString: Untagged
@@ -65118,6 +65119,22 @@ Transform:
   m_Father: {fileID: 1250638309}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1278414128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278414126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b1ad26609b34ad5988a110430466e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjects:
+  - {fileID: 1031623338}
+  - {fileID: 1777563847}
+  - {fileID: 1814226933}
 --- !u!1001 &1280524177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107269,7 +107286,7 @@ PrefabInstance:
     - target: {fileID: 5548537075829248697, guid: 7d34b415f21136646a97db90c63198ed,
         type: 3}
       propertyPath: items.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5548537075829248697, guid: 7d34b415f21136646a97db90c63198ed,
         type: 3}
@@ -107290,7 +107307,7 @@ PrefabInstance:
         type: 3}
       propertyPath: items.Array.data[0]
       value: 
-      objectReference: {fileID: 1031623338}
+      objectReference: {fileID: 1278414126}
     - target: {fileID: 5548537075829248697, guid: 7d34b415f21136646a97db90c63198ed,
         type: 3}
       propertyPath: items.Array.data[1]

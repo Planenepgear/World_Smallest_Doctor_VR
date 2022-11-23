@@ -6,12 +6,14 @@ public class SwitchScript : MonoBehaviour
 {
     public GameObject Handle;
     private HingeJoint thisTingeJoint;
-
     public GameObject[] items;
+    public List<IItem> _items = new List<IItem>();
 
     // Start is called before the first frame update
     void Start()
     {
+        foreach (var i in items)
+            _items.Add(i.GetComponentInChildren<IItem>());
         thisTingeJoint = Handle.GetComponent<HingeJoint>();
     }
 
@@ -19,42 +21,13 @@ public class SwitchScript : MonoBehaviour
     void Update()
     {
         //Debug.Log(thisTingeJoint.angle);
+        if (_items.Count == 0) return;
+        foreach(var item in _items)
+        {
+            print(gameObject);
+            print(thisTingeJoint);
+            item.Input(thisTingeJoint.angle > -55f);
+        }
 
-        if (thisTingeJoint.angle <= -55f)
-        {
-            foreach (var item in items)
-            {
-                if (item.CompareTag("Door1"))
-                {
-                    item.SetActive(false);
-                }
-                else if (item.CompareTag("Trap1"))
-                {
-                    item.SendMessage("StopTrap", true);
-                }
-                else if (item.CompareTag("Platform"))
-                {
-                    item.SendMessage("StopTrap", true);
-                }
-            }
-        }
-        else
-        {
-            foreach (var item in items)
-            {
-                if (item.CompareTag("Door1"))
-                {
-                    item.SetActive(true);
-                }
-                else if (item.CompareTag("Trap1"))
-                {
-                    item.SendMessage("StopTrap", false);
-                }
-                else if (item.CompareTag("Platform"))
-                {
-                    item.SendMessage("StopTrap", false);
-                }
-            }
-        }
     }
 }

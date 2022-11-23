@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trap1Scripts : MonoBehaviour
+public class Trap1Scripts : MonoBehaviour, IItem
 {
     public GameObject trapSpikesPrefab;
 
@@ -34,15 +34,16 @@ public class Trap1Scripts : MonoBehaviour
         }
     }
 
-    public void StopTrap(bool sw)
+
+    public void Input(bool value)
     {
         if (insTrapSpikes)
         {
-            if (sw)
+            if (value)
             {
                 insTrapSpikes.GetComponent<FloatingSwayMove>().Enabled = false;
             }
-            else if (!sw)
+            else if (!value)
             {
                 insTrapSpikes.GetComponent<FloatingSwayMove>().Enabled = true;
             }
