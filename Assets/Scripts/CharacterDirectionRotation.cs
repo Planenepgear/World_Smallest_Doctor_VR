@@ -9,9 +9,12 @@ public class CharacterDirectionRotation : MonoBehaviour
     public Transform towards;
     public Transform characterModle;
 
+    public Animator animator;
+
     private Vector3 tempTowards;
 
     public float turnSpeed = 5;
+    public float animSpeed = 3;
 
     //public InputActionProperty LJoystick;
     //public InputActionProperty RJoystick;
@@ -21,6 +24,7 @@ public class CharacterDirectionRotation : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         characterController = transform.parent.GetComponent<CharacterController>();
     }
 
@@ -34,5 +38,12 @@ public class CharacterDirectionRotation : MonoBehaviour
         Quaternion q = Quaternion.LookRotation(tempTowards);
         //Quaternion q = Quaternion.LookRotation(transform.parent.GetComponent<CharacterController>().velocity);
         characterModle.rotation = Quaternion.Slerp(characterModle.rotation, q, turnSpeed * Time.deltaTime);
+
+        float moveSpeed =  characterController.velocity.magnitude;
+
+
+        animator.SetFloat("Vertical", moveSpeed, 0.1f, Time.deltaTime);
+
+        animator.SetFloat("WalkSpeed", animSpeed);
     }
 }
