@@ -5,10 +5,11 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour, IItem
 {
     [SerializeField] private float moveSpeed;
-    private bool isEnabled = false;
+    public bool isEnabled = false;
 
     [SerializeField] List<Transform> wayPoints = new List<Transform>();
     private int idx = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +30,8 @@ public class MovingPlatform : MonoBehaviour, IItem
             }
             Vector3 moveVec = dest - transform.localPosition;
             moveVec = moveVec.normalized * moveSpeed * Time.deltaTime;
-            transform.Translate(moveVec);
-        }
+//            transform.Translate(moveVec);
+            transform.localPosition += moveVec;        }
     }
 
     public void Input(bool value)
