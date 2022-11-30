@@ -30,6 +30,7 @@ public class SceneTranform : MonoBehaviour
 
     private void Start()
     {
+        //characterModle.parent.SetParent(this.transform);
         //this.transform.position = playerCamera.position + playerCamera.InverseTransformPoint(new Vector3(0, -10, 50));
         Invoke(nameof(FirstPos), 0.2f);
     }
@@ -92,6 +93,6 @@ public class SceneTranform : MonoBehaviour
 
     public void FirstPos()
     {
-        this.transform.position = playerCamera.position + new Vector3(0, -7 + characterModle.position.y, 10);
+        this.transform.position = playerCamera.position + new Vector3(0, -7 + characterModle.position.y, 12);
     }
 }

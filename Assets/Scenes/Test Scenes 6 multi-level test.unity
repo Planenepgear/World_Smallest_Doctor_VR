@@ -437,6 +437,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5953893}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9361709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3240157636496332670, guid: 1fda0a90b8197c243a5fdccd14ab8f79,
+    type: 3}
+  m_PrefabInstance: {fileID: 3007621540316176620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9932779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53119,6 +53125,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4e793c9035bae704588eaee56a195e9f,
     type: 3}
   m_PrefabInstance: {fileID: 1082346191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1084624437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3240157636496334112, guid: 1fda0a90b8197c243a5fdccd14ab8f79,
+    type: 3}
+  m_PrefabInstance: {fileID: 3007621540316176620}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1085404481
 PrefabInstance:
@@ -107155,6 +107167,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1159395574}
     m_Modifications:
+    - target: {fileID: 2898626649029660188, guid: 1fda0a90b8197c243a5fdccd14ab8f79,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b83e417df85b294685fdbe076d0da31, type: 2}
     - target: {fileID: 3007621540301837952, guid: 1fda0a90b8197c243a5fdccd14ab8f79,
         type: 3}
       propertyPath: m_ForwardSource
@@ -107225,6 +107242,21 @@ PrefabInstance:
       propertyPath: scene
       value: 
       objectReference: {fileID: 1159395574}
+    - target: {fileID: 3240157636493219644, guid: 1fda0a90b8197c243a5fdccd14ab8f79,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240157636496331560, guid: 1fda0a90b8197c243a5fdccd14ab8f79,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7445579608541849001, guid: 1fda0a90b8197c243a5fdccd14ab8f79,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b83e417df85b294685fdbe076d0da31, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fda0a90b8197c243a5fdccd14ab8f79, type: 3}
 --- !u!4 &4568699970757423819 stripped
@@ -107663,7 +107695,7 @@ PrefabInstance:
         type: 3}
       propertyPath: characterModle
       value: 
-      objectReference: {fileID: 693169720}
+      objectReference: {fileID: 1084624437}
     - target: {fileID: 7644332756205456828, guid: 27400566f06e974419be420e7e40a57b,
         type: 3}
       propertyPath: chapterLeftHand
@@ -107684,6 +107716,11 @@ PrefabInstance:
       propertyPath: weightChangeSpeed
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7644332756205456828, guid: 27400566f06e974419be420e7e40a57b,
+        type: 3}
+      propertyPath: characterModleMesh
+      value: 
+      objectReference: {fileID: 9361709}
     - target: {fileID: 7644332756205456829, guid: 27400566f06e974419be420e7e40a57b,
         type: 3}
       propertyPath: m_Name

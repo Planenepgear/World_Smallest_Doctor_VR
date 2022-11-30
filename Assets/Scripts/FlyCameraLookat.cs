@@ -14,6 +14,7 @@ public class FlyCameraLookat : MonoBehaviour
     public Transform characterCamera; //1
     public Transform locator;
     public GameObject characterModle;
+    public GameObject characterModleMesh;
     public GameObject chapterLeftHand;
     public GameObject chapterRightHand;
 
@@ -178,7 +179,7 @@ public class FlyCameraLookat : MonoBehaviour
             if (tgt == characterCamera)
             {
                 //chapterModle.SetActive(false);
-                characterModle.GetComponent<MeshRenderer>().enabled = false;
+                characterModleMesh.GetComponent<SkinnedMeshRenderer>().enabled = false;
 
                 characterCamera.parent.parent.GetComponent<ActionBasedSnapTurnProvider>().enabled = true;
                 chapterLeftHand.SetActive(true);
@@ -203,7 +204,7 @@ public class FlyCameraLookat : MonoBehaviour
             if (tgt == playerCamera)
             {
                 //chapterModle.SetActive(true);
-                characterModle.GetComponent<MeshRenderer>().enabled = true;
+                characterModleMesh.GetComponent<SkinnedMeshRenderer>().enabled = true;
 
                 characterCamera.parent.parent.GetComponent<ActionBasedSnapTurnProvider>().enabled = false;
             }
