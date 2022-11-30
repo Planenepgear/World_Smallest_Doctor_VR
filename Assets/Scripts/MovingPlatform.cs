@@ -10,6 +10,9 @@ public class MovingPlatform : MonoBehaviour, IItem
     [SerializeField] List<Transform> wayPoints = new List<Transform>();
     private int idx = 0;
 
+    [SerializeField] float stopTime;
+    float timer = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +22,16 @@ public class MovingPlatform : MonoBehaviour, IItem
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+        if (timer < stopTime)
+            return;
 
         if (isEnabled)
         {
             Vector3 dest = wayPoints[idx].localPosition;
             if((dest - transform.localPosition).sqrMagnitude< 0.01f)
             {
+                timer = 0;
                 ++idx;
                 idx %= wayPoints.Count;
             }

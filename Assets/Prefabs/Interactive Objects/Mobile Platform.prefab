@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7511681232884532833}
   - component: {fileID: 4252052408731368088}
   - component: {fileID: 9144573236548112656}
+  - component: {fileID: 2298229791727403766}
   m_Layer: 0
   m_Name: Mobile Platform
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2539613679365967428}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -7.49, y: 4.5181, z: 11.004735}
-  m_LocalScale: {x: 0.74893653, y: 0.33836952, z: 0.74893653}
+  m_LocalScale: {x: 0.48415002, y: 0.21873897, z: 0.48415002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7668646067831812698}
@@ -100,6 +101,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.123926, y: 0.80000013, z: 4.123928}
   m_Center: {x: 0, y: 0.40000007, z: 0}
+--- !u!114 &2298229791727403766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539613679365967428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac4ce8524afbec42895257995a9cc15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  isEnabled: 0
+  wayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &8594281895064900386
 GameObject:
   m_ObjectHideFlags: 0

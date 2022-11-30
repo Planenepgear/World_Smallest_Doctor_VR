@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using Debug = UnityEngine.Debug;
 
 public class CharacterCollision : MonoBehaviour
@@ -12,7 +13,16 @@ public class CharacterCollision : MonoBehaviour
 
     private Transform platformOriginParent;
     private bool platformFrameCheck = false;
-    void OnControllerColliderHit(ControllerColliderHit hit)
+
+    private float originMoveSpeed;
+    public ActionBasedContinuousMoveProvider moveProvider;
+
+    void Start()
+    {
+        originMoveSpeed = moveProvider.moveSpeed;
+    }
+
+    void OnControllerIColliderHit(ControllerColliderHit hit)
     {
         if (hit.gameObject.CompareTag("Elevator"))
         {
@@ -48,12 +58,16 @@ public class CharacterCollision : MonoBehaviour
         if (hit.collider && !originParent)
         {
             originParent = transform.parent;
+            moveProvider.moveSpeed = originMoveSpeed * (hit.collider.transform.localScale.magnitude);
             transform.SetParent(hit.collider.transform);
+
         }
         if (!hit.collider && originParent)
         {
+            moveProvider.moveSpeed = originMoveSpeed;
             transform.SetParent(originParent);
             originParent = null;
+
         }
         
     }
