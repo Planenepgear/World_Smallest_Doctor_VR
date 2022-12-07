@@ -32,7 +32,7 @@ public class SceneTranform : MonoBehaviour
     {
         //characterModle.parent.SetParent(this.transform);
         //this.transform.position = playerCamera.position + playerCamera.InverseTransformPoint(new Vector3(0, -10, 50));
-        Invoke(nameof(FirstPos), 0.2f);
+        Invoke(nameof(FirstPos), 0.01f);
     }
 
     void Update()

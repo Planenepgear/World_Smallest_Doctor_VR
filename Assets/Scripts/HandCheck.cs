@@ -1,42 +1,75 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HandCheck : MonoBehaviour
 {
-    public GameObject hand;
-    public GameObject handModel;
-    public float minDistance = 0.1f;
+    public MainSceneManager levelController;
+    public GameObject handRealL;
+    public GameObject handRealR;
+
+    public GameObject handModelL;
+    public GameObject handModelR;
+    public float minDistance = 1f;
 
     public bool isLeftHand;
     public bool isRightHand;
+    private bool isSwitch = false;
 
-    // Start is called before the first frame update
     void Start()
     {
-        handModel.SetActive(false);
+        handModelL.SetActive(false);
+        handModelR.SetActive(false);
+
+        isLeftHand = false;
+        isRightHand = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (hand && isLeftHand)
+        if (handRealL && handModelL)
         {
-            if((transform.position - hand.transform.position).sqrMagnitude <= minDistance)
+            if((handRealL.transform.position - handModelL.transform.position).sqrMagnitude <= minDistance)
             {
-                hand.SetActive(false);
-                handModel.SetActive(true);
-                //transform.parent.SendMessage("",)
+                handRealL.SetActive(false);
+                handModelL.SetActive(true);
+                isLeftHand =  true;
             }
         }
-        else if (hand && isRightHand)
+        if ((handRealL.transform.position - handModelL.transform.position).sqrMagnitude > minDistance)
         {
-            if ((transform.position - hand.transform.position).sqrMagnitude <= minDistance)
+            handRealL.SetActive(true);
+            handModelL.SetActive(false);
+            isLeftHand = false;
+        }
+
+        if (handRealR && handModelR)
+        {
+            if ((handRealR.transform.position - handModelR.transform.position).sqrMagnitude <= minDistance)
             {
-                hand.SetActive(false);
-                handModel.SetActive(true);
-                //transform.parent.SendMessage("",)
+                handRealR.SetActive(false);
+                handModelR.SetActive(true);
+                isRightHand = true;
             }
         }
+        if ((handRealR.transform.position - handModelR.transform.position).sqrMagnitude > minDistance)
+        {
+            handRealR.SetActive(true);
+            handModelR.SetActive(false);
+            isRightHand = false;
+        }
+
+
+        if(isLeftHand && isRightHand && !isSwitch)
+        {
+            Invoke(nameof(GoNext), 1f);
+            isSwitch = true;
+        }
+    }
+
+    private void GoNext()
+    {
+        levelController.NextScene();
     }
 }
