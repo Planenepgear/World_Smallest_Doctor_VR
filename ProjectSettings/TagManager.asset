@@ -11,6 +11,7 @@ TagManager:
   - Elevator
   - Seesaw
   - Platform
+  - Hands
   layers:
   - Default
   - TransparentFX
