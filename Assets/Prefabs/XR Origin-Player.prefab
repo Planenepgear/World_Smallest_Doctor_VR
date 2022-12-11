@@ -2769,6 +2769,7 @@ MonoBehaviour:
   characterCamera: {fileID: 0}
   locator: {fileID: 7644332754649197071}
   characterModle: {fileID: 0}
+  characterModleMesh: {fileID: 0}
   chapterLeftHand: {fileID: 0}
   chapterRightHand: {fileID: 0}
   globalVolume: {fileID: 0}

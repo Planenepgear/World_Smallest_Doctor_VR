@@ -22,7 +22,7 @@ public class CharacterCollision : MonoBehaviour
         originMoveSpeed = moveProvider.moveSpeed;
     }
 
-    void OnControllerIColliderHit(ControllerColliderHit hit)
+    void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.gameObject.CompareTag("Elevator"))
         {
@@ -32,6 +32,7 @@ public class CharacterCollision : MonoBehaviour
       
         if (hit.gameObject.CompareTag("Seesaw"))
         {
+            Debug.Log("Seesaw");
             Rigidbody rb = hit.collider.attachedRigidbody;
 
             if (rb == null || rb.isKinematic)
