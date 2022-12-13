@@ -12,6 +12,7 @@ TagManager:
   - Seesaw
   - Platform
   - Hands
+  - Shell
   layers:
   - Default
   - TransparentFX

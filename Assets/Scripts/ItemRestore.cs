@@ -15,16 +15,20 @@ public class ItemRestore : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject target = other.gameObject;
-        if(target.transform.parent == floorManager.transform)
+
+        if (!target.CompareTag("Shell"))
         {
-            LevelObjectInfo origin = floorManager.FindObjectWithID(target.GetInstanceID());
-            
-            if (origin != null)
+            if (target.transform.parent == floorManager.transform)
             {
-                origin.rigidbody.velocity = Vector3.zero;
-                origin.rigidbody.angularVelocity = Vector3.zero;
-                target.transform.localPosition = origin.originPosition;
-                target.transform.localRotation = origin.originRotation;
+                LevelObjectInfo origin = floorManager.FindObjectWithID(target.GetInstanceID());
+
+                if (origin != null)
+                {
+                    origin.rigidbody.velocity = Vector3.zero;
+                    origin.rigidbody.angularVelocity = Vector3.zero;
+                    target.transform.localPosition = origin.originPosition;
+                    target.transform.localRotation = origin.originRotation;
+                }
             }
         }
     }

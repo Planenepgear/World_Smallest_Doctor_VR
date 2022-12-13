@@ -11,6 +11,9 @@ public class ElevatorScript : MonoBehaviour
     public GameObject characterObject;
     public Transform playerCamera;
     //public Transform characterModle;
+
+    public GameObject lastElevator;
+
     public float moveSpeed = 3f;
     public float moveSmoothTime = 3f;
     public bool isLocked = false;
@@ -38,6 +41,11 @@ public class ElevatorScript : MonoBehaviour
         if (isLocked)
         {
             Invoke(nameof(ElevatorMove), 1.0f);
+
+            if (characterObject)
+            {
+                PosLock(characterObject);
+            }
         }
     }
 
@@ -75,10 +83,16 @@ public class ElevatorScript : MonoBehaviour
 
                     if (characterObject)
                     {
-                        this.transform.SetParent(endPoint.parent);
-                        characterObject.transform.SetParent(endPoint.parent.parent);
+                        //this.transform.SetParent(endPoint.parent);
+                        //characterObject.transform.SetParent(endPoint.parent.parent);
+
                         characterObject = null;
                         OriginParent.SetActive(false);
+
+                        if (lastElevator)
+                        {
+                            lastElevator.SetActive(false);
+                        }
                     }
                 }
 
@@ -107,15 +121,25 @@ public class ElevatorScript : MonoBehaviour
             characterObject = character;
             isLocked = true;
             //character.transform.SetParent(this.transform);
-            //character.transform.position = new Vector3(elevatorCenter.position.x, character.transform.localScale.y, elevatorCenter.position.z);
+            //character.transform.position = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+            //PosLock(character);
         }
         else
         {
             isLocked = false;
-            this.transform.SetParent(endPoint.parent);
+            //this.transform.SetParent(endPoint.parent);
             //character.transform.SetParent(endPoint.parent.parent);
             //characterObject = null;
             OriginParent.SetActive(false);
+        }
+    }
+
+    private void PosLock(GameObject character)
+    {
+        if (isLocked)
+        {
+            character.transform.position = new Vector3(Mathf.Clamp(character.transform.position.x, transform.position.x - 0.9f, transform.position.x + 0.9f),
+                Mathf.Clamp(character.transform.position.y, transform.position.y - 0.1f, transform.position.y + 0.9f), Mathf.Clamp(character.transform.position.z, transform.position.z - 0.9f, transform.position.z + 0.9f));
         }
     }
 }

@@ -11,12 +11,14 @@ public class CylinderGame : MonoBehaviour
 
     [SerializeField] float rotateSpeed;
 
+    ElevatorScript _elevatorScript;
+
     private bool inCoroutine = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _elevatorScript = transform.parent.GetComponent<ElevatorScript>();
     }
 
     // Update is called once per frame
@@ -52,6 +54,11 @@ public class CylinderGame : MonoBehaviour
         if (l.max == 5 && l.current_liquid + v == 4.5)
         {
             Debug.Log("GGWP");
+
+            if (_elevatorScript)
+            {
+                _elevatorScript.enabled = true;
+            }
         }
 
         l.AddLiquid(v);

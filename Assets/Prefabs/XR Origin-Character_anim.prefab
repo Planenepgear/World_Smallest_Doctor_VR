@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd79401d6ddae04caafef53a88af83a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 0}
+  characterGeometry: {fileID: 0}
   forceMagnitude: 0.3
   moveProvider: {fileID: 0}
 --- !u!1 &3007621540516738198
