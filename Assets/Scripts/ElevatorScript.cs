@@ -106,14 +106,14 @@ public class ElevatorScript : MonoBehaviour
         {
             characterObject = character;
             isLocked = true;
-            character.transform.SetParent(this.transform);
+            //character.transform.SetParent(this.transform);
             //character.transform.position = new Vector3(elevatorCenter.position.x, character.transform.localScale.y, elevatorCenter.position.z);
         }
         else
         {
             isLocked = false;
             this.transform.SetParent(endPoint.parent);
-            character.transform.SetParent(endPoint.parent.parent);
+            //character.transform.SetParent(endPoint.parent.parent);
             //characterObject = null;
             OriginParent.SetActive(false);
         }

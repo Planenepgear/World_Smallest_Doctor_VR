@@ -7,7 +7,12 @@ using Debug = UnityEngine.Debug;
 
 public class CharacterCollision : MonoBehaviour
 {
-    public Transform scene;
+    //public Transform scene;
+    //public Transform currentStage;
+
+    public GameObject characterGeometry;
+    private SkinnedMeshRenderer characterSkinnedMeshRenderer;
+
     //public float pushPower = 1.0f;
     public float forceMagnitude = 1.0f;
 
@@ -20,6 +25,7 @@ public class CharacterCollision : MonoBehaviour
     void Start()
     {
         originMoveSpeed = moveProvider.moveSpeed;
+        characterSkinnedMeshRenderer = characterGeometry.GetComponent<SkinnedMeshRenderer>();
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -29,7 +35,7 @@ public class CharacterCollision : MonoBehaviour
             hit.transform.SendMessage("CharacterLocker", this.gameObject);
         }
 
-      
+
         if (hit.gameObject.CompareTag("Seesaw"))
         {
             Debug.Log("Seesaw");
@@ -53,23 +59,63 @@ public class CharacterCollision : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, 3f, LayerMask.GetMask("Platform"));
+        Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, 3f, LayerMask.GetMask("Platform", "Elevator"));
         if(hit.collider)
             print(hit.collider);
         if (hit.collider && !originParent)
         {
+            platformFrameCheck = true;
             originParent = transform.parent;
-            moveProvider.moveSpeed = originMoveSpeed * (hit.collider.transform.localScale.magnitude);
-            transform.SetParent(hit.collider.transform);
 
+            //if(characterSkinnedMeshRenderer.enabled == false)
+            //{
+            //    moveProvider.moveSpeed = originMoveSpeed * (hit.collider.transform.localScale.x) * 0.6f;
+            //}
+            //else
+            //{
+            //    moveProvider.moveSpeed = originMoveSpeed * (hit.collider.transform.localScale.x);
+            //}
+
+            transform.SetParent(hit.collider.transform);
         }
         if (!hit.collider && originParent)
         {
-            moveProvider.moveSpeed = originMoveSpeed;
+            platformFrameCheck = false;
+
+            //if (characterSkinnedMeshRenderer.enabled == false)
+            //{
+            //    moveProvider.moveSpeed = originMoveSpeed * 0.6f;
+            //}
+            //else
+            //{
+            //    moveProvider.moveSpeed = originMoveSpeed;
+            //}
+
             transform.SetParent(originParent);
             originParent = null;
-
         }
-        
+
+        if (!platformFrameCheck)
+        {
+            if (characterSkinnedMeshRenderer.enabled == false)
+            {
+                moveProvider.moveSpeed = originMoveSpeed * 0.6f;
+            }
+            else if (characterSkinnedMeshRenderer.enabled == true)
+            {
+                moveProvider.moveSpeed = originMoveSpeed;
+            }
+        }
+        else if (platformFrameCheck)
+        {
+            if (characterSkinnedMeshRenderer.enabled == false)
+            {
+                moveProvider.moveSpeed = originMoveSpeed * (hit.collider.transform.localScale.x) * 0.6f;
+            }
+            else if (characterSkinnedMeshRenderer.enabled == true)
+            {
+                moveProvider.moveSpeed = originMoveSpeed * (hit.collider.transform.localScale.x);
+            }
+        }
     }
 }

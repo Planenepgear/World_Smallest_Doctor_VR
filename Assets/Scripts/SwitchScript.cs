@@ -24,9 +24,11 @@ public class SwitchScript : MonoBehaviour
         if (_items.Count == 0) return;
         foreach(var item in _items)
         {
-            print(gameObject);
-            print(thisTingeJoint);
-            item.Input(thisTingeJoint.angle > -55f);
+            //print(gameObject);
+            //print(thisTingeJoint);
+            //print(Handle.transform.localRotation.x);
+
+            item.Input(Handle.transform.localRotation.x > -0.15f);
         }
 
     }
