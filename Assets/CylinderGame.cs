@@ -10,6 +10,8 @@ public class CylinderGame : MonoBehaviour
     [SerializeField] Cylinder r;
 
     [SerializeField] float rotateSpeed;
+    [SerializeField] float _waitTime = 2f;
+
 
     ElevatorScript _elevatorScript;
 
@@ -57,7 +59,7 @@ public class CylinderGame : MonoBehaviour
 
             if (_elevatorScript)
             {
-                _elevatorScript.enabled = true;
+                Invoke(nameof(WaitTime), _waitTime);
             }
         }
 
@@ -137,5 +139,8 @@ public class CylinderGame : MonoBehaviour
         inCoroutine = false;
     }
 
-
+    private void WaitTime()
+    {
+        _elevatorScript.enabled = true;
+    }
 }

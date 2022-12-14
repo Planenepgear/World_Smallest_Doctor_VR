@@ -6,7 +6,7 @@ public class ElevatorScript : MonoBehaviour
 {
     public Transform midPoint;
     public Transform endPoint;
-    public Transform scene;
+    public Transform playerObject;
     //public Transform elevatorCenter;
     public GameObject characterObject;
     public Transform playerCamera;
@@ -60,9 +60,9 @@ public class ElevatorScript : MonoBehaviour
             {
                 transform.position = Vector3.MoveTowards(transform.position, midPoint.position, moveSpeed * Time.deltaTime);
                 //transform.position = Vector3.SmoothDamp(transform.position, midPoint.position, ref moveVelocity, moveSmoothTime);
-                
+
                 //scene.position -= new Vector3(0, dis, 0);
-                scene.position = Vector3.MoveTowards(scene.position, scene.position - new Vector3(0, dis, 0), 5f * Time.deltaTime);
+                playerObject.position = Vector3.MoveTowards(playerObject.position, playerObject.position + new Vector3(0, dis, 0), 5f * Time.deltaTime);
             }
             else
             {
@@ -72,9 +72,9 @@ public class ElevatorScript : MonoBehaviour
                     isMidPoint = false;
                     transform.position = Vector3.MoveTowards(transform.position, endPoint.position, moveSpeed * Time.deltaTime);
                     //transform.position = Vector3.SmoothDamp(transform.position, endPoint.position, ref moveVelocity, moveSmoothTime);
-                    
+
                     //scene.position -= new Vector3(0, dis, 0);
-                    scene.position = Vector3.MoveTowards(scene.position, scene.position - new Vector3(0, dis, 0), 5f * Time.deltaTime);
+                    playerObject.position = Vector3.MoveTowards(playerObject.position, playerObject.position + new Vector3(0, dis, 0), 5f * Time.deltaTime);
                 }
                 else if (distanceEnd < 1.0f)
                 {
@@ -110,7 +110,7 @@ public class ElevatorScript : MonoBehaviour
             //transform.position = Vector3.SmoothDamp(transform.position, endPoint.position, ref moveVelocity, moveSmoothTime);
 
             var dis = transform.position.y - playerCamera.position.y + 5f;
-            scene.position = Vector3.MoveTowards(scene.position, scene.position - new Vector3(0, dis, 0), 5f * Time.deltaTime);
+            playerObject.position = Vector3.MoveTowards(playerObject.position, playerObject.position + new Vector3(0, dis, 0), 5f * Time.deltaTime);
         }
     }
 

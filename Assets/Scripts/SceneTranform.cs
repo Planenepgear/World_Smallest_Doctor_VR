@@ -9,6 +9,7 @@ public class SceneTranform : MonoBehaviour
     public GameObject refObject;
     public Transform locator;
     public Transform playerCamera;
+    public Transform playerObject;
     public Transform characterModle;
 
     public float turnSpeed = 5;
@@ -52,7 +53,7 @@ public class SceneTranform : MonoBehaviour
                     //if(this.transform.position.y - playerCamera.position.y < maxDistanceVertical)
                     if (characterModle.position.y - playerCamera.position.y < maxDistanceVertical)
                     {
-                        this.transform.Translate(moveSpeed * Time.deltaTime * Vector3.up, Space.World);
+                        playerObject.Translate(moveSpeed * Time.deltaTime * Vector3.down, Space.World);
                     }
                 }
                 else if (angle >= 50 && angle <= 130 && joystickValue.y < 0)
@@ -61,7 +62,7 @@ public class SceneTranform : MonoBehaviour
                     //if(this.transform.position.y - playerCamera.position.y > minDistanceVertical)
                     if (characterModle.position.y - playerCamera.position.y > minDistanceVertical)
                     {
-                        this.transform.Translate(moveSpeed * Time.deltaTime * Vector3.down, Space.World);
+                        playerObject.Translate(moveSpeed * Time.deltaTime * Vector3.up, Space.World);
                     }
                 }
                 else if (joystickValue.x > 0)

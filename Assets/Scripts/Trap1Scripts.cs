@@ -5,6 +5,7 @@ using UnityEngine;
 public class Trap1Scripts : MonoBehaviour, IItem
 {
     public GameObject trapSpikesPrefab;
+    public GameObject fakeSpikes;
 
     private GameObject insTrapSpikes;
     private Vector3 trapPosition;
@@ -24,12 +25,21 @@ public class Trap1Scripts : MonoBehaviour, IItem
         {
             if (trapPosition != transform.position)
             {
+                fakeSpikes.SetActive(true);
+
                 Destroy(insTrapSpikes);
                 insTrapSpikes = Instantiate(trapSpikesPrefab, transform.position, transform.rotation);
                 insTrapSpikes.transform.SetParent(this.gameObject.transform);
                 insTrapSpikes.transform.localScale = this.gameObject.transform.localScale;
 
                 trapPosition = transform.position;
+            }
+            else
+            {
+                if(fakeSpikes.activeInHierarchy == true)
+                {
+                    fakeSpikes.SetActive(false);
+                }
             }
         }
     }

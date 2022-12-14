@@ -147,6 +147,10 @@ public class CharacterCollision : MonoBehaviour
 
     private void BackToSavePoint()
     {
+        _savePosition = new Vector3(savePosition.position.x, savePosition.position.y + 1f, savePosition.position.z);
+        _saveRotation = transform.rotation;
+
+
         transform.position = _savePosition;
         transform.rotation = _saveRotation;
     }
