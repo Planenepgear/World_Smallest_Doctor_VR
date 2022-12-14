@@ -15,6 +15,7 @@ TagManager:
   - Shell
   - SavePoint
   - PlayerDeadZone
+  - LaserPoint
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Platform
   - Postprocessing
   - Elevator
-  - 
+  - Mirror
   - 
   - 
   - 
