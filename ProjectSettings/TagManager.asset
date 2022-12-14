@@ -13,6 +13,8 @@ TagManager:
   - Platform
   - Hands
   - Shell
+  - SavePoint
+  - PlayerDeadZone
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,6 +23,11 @@ public class CharacterCollision : MonoBehaviour
     private float originMoveSpeed;
     public ActionBasedContinuousMoveProvider moveProvider;
 
+    [SerializeField] private Transform savePosition;
+    public float deadZoneStaeTime = 0.25f;
+    private Vector3 _savePosition;
+    private Quaternion _saveRotation;
+
     void Start()
     {
         originMoveSpeed = moveProvider.moveSpeed;
@@ -33,10 +39,27 @@ public class CharacterCollision : MonoBehaviour
         if (hit.gameObject.CompareTag("Elevator"))
         {
             hit.transform.SendMessage("CharacterLocker", this.gameObject);
+
+            savePosition = hit.gameObject.transform;
+            _savePosition = new Vector3(savePosition.position.x, savePosition.position.y + 1f, savePosition.position.z);
         }
 
+        if (hit.gameObject.CompareTag("SavePoint"))
+        {
+            savePosition = hit.gameObject.transform;
+            _savePosition = new Vector3(savePosition.position.x, savePosition.position.y + 1f, savePosition.position.z);
+            _saveRotation = transform.rotation;
+        }
 
-        if (hit.gameObject.CompareTag("Seesaw"))
+        if (hit.gameObject.CompareTag("PlayerDeadZone"))
+        {
+            if (savePosition)
+            {
+                Invoke(nameof(BackToSavePoint), deadZoneStaeTime);
+            }
+        }
+
+            if (hit.gameObject.CompareTag("Seesaw"))
         {
             Debug.Log("Seesaw");
             Rigidbody rb = hit.collider.attachedRigidbody;
@@ -52,8 +75,11 @@ public class CharacterCollision : MonoBehaviour
             //}
 
             rb.AddForceAtPosition(Vector3.down * forceMagnitude, transform.position, ForceMode.Impulse);
+
+
         }
     }
+
 
     private Transform originParent;
     private void Update()
@@ -117,5 +143,11 @@ public class CharacterCollision : MonoBehaviour
                 moveProvider.moveSpeed = originMoveSpeed * (hit.collider.transform.localScale.x);
             }
         }
+    }
+
+    private void BackToSavePoint()
+    {
+        transform.position = _savePosition;
+        transform.rotation = _saveRotation;
     }
 }
