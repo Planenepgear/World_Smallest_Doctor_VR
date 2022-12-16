@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.1727685, g: 0.21589173, b: 0.29782465, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -213,7 +213,12 @@ PrefabInstance:
     - target: {fileID: 7644332755939777089, guid: 27400566f06e974419be420e7e40a57b,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644332755939777089, guid: 27400566f06e974419be420e7e40a57b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7644332755939777091, guid: 27400566f06e974419be420e7e40a57b,
         type: 3}
@@ -395,6 +400,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 19896847}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &19896851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7644332755939777089, guid: 27400566f06e974419be420e7e40a57b,
+    type: 3}
+  m_PrefabInstance: {fileID: 19896847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &19896852 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7644332756205456829, guid: 27400566f06e974419be420e7e40a57b,
@@ -425,6 +436,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 19896847}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &19896855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19896851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: b211400e579cb6449abe8c874e065959, type: 2}
 --- !u!1 &32391668
 GameObject:
   m_ObjectHideFlags: 0
@@ -24683,7 +24711,7 @@ GameObject:
   - component: {fileID: 3007621541983633975}
   - component: {fileID: 3007621541983633974}
   - component: {fileID: 3007621541983633969}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Main Camera-Chapter
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
