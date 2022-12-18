@@ -6,6 +6,7 @@ public class Cylinder : MonoBehaviour
 {
     public GameObject liquid;
     public float current_liquid;
+    public float originLiquid;
     public float max;
 
     public bool inCoroutine = false;
@@ -13,6 +14,7 @@ public class Cylinder : MonoBehaviour
     private void Start()
     {
         liquid.transform.localScale = new Vector3(1, current_liquid, 1);
+        originLiquid = current_liquid;
     }
     public float GetCanAddLiquid()
     {
