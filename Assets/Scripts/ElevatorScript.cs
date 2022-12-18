@@ -25,6 +25,7 @@ public class ElevatorScript : MonoBehaviour
     private bool isMidPoint = true;
     private GameObject OriginParent;
 
+    private AudioSource audioSource;
     private void Awake()
     {
         OriginParent = gameObject.transform.parent.gameObject;
@@ -32,6 +33,7 @@ public class ElevatorScript : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         //characterController = Character.GetComponent<CharacterController>();
         isLocked = false;
     }
@@ -51,6 +53,7 @@ public class ElevatorScript : MonoBehaviour
 
     private void ElevatorMove()
     {
+        audioSource.Play();
         endPoint.parent.gameObject.SetActive(true);
         if (midPoint)
         {
@@ -80,7 +83,7 @@ public class ElevatorScript : MonoBehaviour
                 {
                     isLocked = false;
                     isFinished = true;
-
+                    audioSource.Stop();
                     if (characterObject)
                     {
                         //this.transform.SetParent(endPoint.parent);

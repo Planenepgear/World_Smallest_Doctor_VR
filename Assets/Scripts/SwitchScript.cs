@@ -8,6 +8,8 @@ public class SwitchScript : MonoBehaviour
     private HingeJoint thisTingeJoint;
     public GameObject[] items;
     public List<IItem> _items = new List<IItem>();
+    private AudioSource audioSource;
+    private bool flag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,7 @@ public class SwitchScript : MonoBehaviour
         foreach (var i in items)
             _items.Add(i.GetComponentInChildren<IItem>());
         thisTingeJoint = Handle.GetComponent<HingeJoint>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,8 +30,27 @@ public class SwitchScript : MonoBehaviour
             //print(gameObject);
             //print(thisTingeJoint);
             //print(Handle.transform.localRotation.x);
+            if(Handle.transform.localRotation.x > -0.15f)
+            {
+                if (!flag)
+                {
+                    Debug.Log("Switch play" + gameObject);
+                    flag = true;
+                    audioSource.Play();
+                    item.Input(Handle.transform.localRotation.x > -0.15f);
+                }
+            }
+            else
+            {
+                if (flag)
+                {
+                    Debug.Log("Switch play" + gameObject);
+                    flag = false;
+                    audioSource.Play();
+                    item.Input(Handle.transform.localRotation.x > -0.15f);
+                }
+            }
 
-            item.Input(Handle.transform.localRotation.x > -0.15f);
         }
 
     }
