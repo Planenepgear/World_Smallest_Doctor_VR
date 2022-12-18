@@ -38,6 +38,29 @@ public class CylinderGame : MonoBehaviour
         {
             SwapMR();
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Reset(l);
+            Reset(m);
+            Reset(r);
+        }
+    }
+
+    public void Reset(Cylinder cylinder)
+    {
+
+
+        float curr = cylinder.current_liquid;
+        float dest = cylinder.originLiquid;
+        float delta = dest - curr;
+        if(delta > 0)
+        {
+            cylinder.AddLiquid(delta);
+        }
+        else
+        {
+            cylinder.RemoveLiquid(-delta);
+        }
     }
 
     public void LiquidMove()
