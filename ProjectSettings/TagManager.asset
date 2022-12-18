@@ -16,6 +16,7 @@ TagManager:
   - SavePoint
   - PlayerDeadZone
   - LaserPoint
+  - Mirror
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Platform
   - 
   - Elevator
-  - Mirror
+  - 
   - 
   - 
   - 
