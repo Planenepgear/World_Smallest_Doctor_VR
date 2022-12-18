@@ -11,7 +11,8 @@ public class LaserOrigin : MonoBehaviour
     void Start()
     {
 
-        lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer = GetComponent<LineRenderer>();
+//        lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.startWidth = 0.1f;
         lineRenderer.endWidth = 0.1f;
         lineRenderer.startColor = Color.black;
@@ -29,20 +30,38 @@ public class LaserOrigin : MonoBehaviour
         Vector3 dir = transform.forward;
 
         positiones.Add(start);
-        while (Physics.Raycast(start, dir, out hit, LayerMask.GetMask("Mirror")))
+
+        bool flag = false;
+        while (Physics.Raycast(start, dir, out hit))
         {
             if(hit.collider.gameObject.CompareTag("LaserPoint"))
             {
                 LaserPoint laserPoint= hit.collider.gameObject.GetComponent<LaserPoint>();
                 laserPoint.On();
-            }
-            positiones.Add(hit.point);
 
-            start = hit.point;
-            dir = Vector3.Reflect(dir, hit.normal);
+                positiones.Add(hit.point);
+                flag = true;
+                break;
+            }
+
+            if (hit.collider.gameObject.CompareTag("Mirror"))
+            {
+                positiones.Add(hit.point);
+
+                start = hit.point;
+                dir = Vector3.Reflect(dir, hit.normal);
+            }
+            else
+            {
+                positiones.Add(hit.point);
+                flag = true;
+                break;
+            }
         }
+
+        if(!flag)
         {
-            positiones.Add(start += dir*100);
+            positiones.Add(start += dir * 100);
         }
 
         lineRenderer.positionCount = positiones.Count;

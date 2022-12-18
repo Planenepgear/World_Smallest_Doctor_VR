@@ -7,9 +7,10 @@ public class ItemRestore : MonoBehaviour
     private FloorManager floorManager;
 
 
-    private void Start()
+    private void Awake()
     {
         floorManager = GetComponentInParent<FloorManager>();
+        Debug.Log(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -18,6 +19,7 @@ public class ItemRestore : MonoBehaviour
 
         if (!target.CompareTag("Shell"))
         {
+
             if (target.transform.parent == floorManager.transform)
             {
                 LevelObjectInfo origin = floorManager.FindObjectWithID(target.GetInstanceID());
