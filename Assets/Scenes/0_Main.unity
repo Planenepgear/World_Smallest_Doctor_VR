@@ -33661,7 +33661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minX: -50
   maxX: 50
-  minY: -15
+  minY: -20
   maxY: 10
   minZ: -20
   maxZ: 100
