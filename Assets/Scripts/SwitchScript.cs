@@ -11,9 +11,14 @@ public class SwitchScript : MonoBehaviour
     private AudioSource audioSource;
     private bool flag = false;
 
+    private float originXRot;
+    private bool isChange = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        originXRot = Handle.transform.localRotation.x;
+
         foreach (var i in items)
             _items.Add(i.GetComponentInChildren<IItem>());
         thisTingeJoint = Handle.GetComponent<HingeJoint>();
@@ -25,6 +30,12 @@ public class SwitchScript : MonoBehaviour
     {
         //Debug.Log(thisTingeJoint.angle);
         if (_items.Count == 0) return;
+
+        //if(originXRot != Handle.transform.localRotation.x)
+        //{
+        //    isChange = true;
+        //}
+
         foreach(var item in _items)
         {
             //print(gameObject);
@@ -36,7 +47,10 @@ public class SwitchScript : MonoBehaviour
                 {
                     Debug.Log("Switch play" + gameObject);
                     flag = true;
-                    audioSource.Play();
+
+                    if(isChange)
+                        audioSource.Play();
+                    isChange = true;
                     item.Input(Handle.transform.localRotation.x > -0.15f);
                 }
             }
@@ -46,7 +60,10 @@ public class SwitchScript : MonoBehaviour
                 {
                     Debug.Log("Switch play" + gameObject);
                     flag = false;
-                    audioSource.Play();
+
+                    if (isChange)
+                        audioSource.Play();
+
                     item.Input(Handle.transform.localRotation.x > -0.15f);
                 }
             }
