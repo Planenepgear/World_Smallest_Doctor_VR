@@ -33,15 +33,7 @@ public class PosLockPlayer : MonoBehaviour
         {
             myVolume.weight = Mathf.Clamp(weightChangeSpeed * (distance - maxDistance), 0, 1);
         }
-        else
-        {
-            myVolume.weight = 0;
-        }
-
-        //if (characterCamera.activeInHierarchy == false)
-        //    characterModel.transform.localPosition = ch.center + new Vector3(0, -0.8f, 0);
-
-        if (verticalDistance < 0f)
+        else if (verticalDistance < 0.5f)
         {
             myVolume.weight = Mathf.Clamp(weightChangeSpeed * -verticalDistance * 2, 0.3f, 1);
         }

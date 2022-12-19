@@ -33661,9 +33661,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minX: -50
   maxX: 50
-  minY: -20
+  minY: -25
   maxY: 10
-  minZ: -20
+  minZ: -8
   maxZ: 100
 --- !u!1 &5892639301278653562
 GameObject:
