@@ -72,6 +72,13 @@ public class CylinderGame : MonoBehaviour
         }
     }
 
+    public void ResetAll()
+    {
+        Reset(l);
+        Reset(m);
+        Reset(r);
+    }
+
     public void LiquidMove()
     {
         audioSource.Stop();
